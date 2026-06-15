@@ -4,6 +4,7 @@ from .forms import StudentForm
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -22,12 +23,18 @@ def register(request):
 
 
 
-# Read
+# Login 
 @login_required
+# Read
 def student_list(request):
     students=Student.objects.all()
 
-    return render(request, 'students/student_list.html', {'students':students})
+    paginator = Paginator(students, 5) # 5 students per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'students/student_list.html', {'page_obj':page_obj})
 
 
 # Create
@@ -65,6 +72,7 @@ def delete_student(request, id):
     student = get_object_or_404(Student, id=id)
 
     if request.method == 'POST':
+            
             student.delete()
             return redirect('student_list')
 
