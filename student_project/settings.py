@@ -29,11 +29,11 @@ SECRET_KEY = 'django-insecure-abc123-change-this-key'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'student-management-system-3-uehi.onrender.com',
+    'student-management-system-4-5513.onrender.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://student-management-system-3-uehi.onrender.com'
+    'https://student-management-system-4-5513.onrender.com'
 ]
 
 
@@ -130,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 
 
