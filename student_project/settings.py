@@ -29,7 +29,11 @@ SECRET_KEY = 'django-insecure-abc123-change-this-key'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'student-management-system-2-ez92.onrender.com',
+    'student-management-system-3-uehi.onrender.com',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://student-management-system-3-uehi.onrender.com'
 ]
 
 
