@@ -26,10 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-abc123-change-this-key'
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'student-management-system-4-5513.onrender.com',
+    '127.0.0.1', 'localhost'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
