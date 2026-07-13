@@ -96,14 +96,13 @@ WSGI_APPLICATION = 'student_project.wsgi.application'
 # }
 
 
-
-
-# import dj_database_url 
-# import os
-# DATABASES = {
-#      'default':dj_database_url.config(
-#        default=os.environ.get("postgresql://student_db_2112_user:iOryEEOeOkYb4x5FN3k0qPdYHctyucTE@dpg-d8od27b7uimc739fico0-a/student_db_2112")     )
-#  }       
+import os
+import dj_database_url
+DATABASES = {
+    'default':dj_database_url.config(
+        default=os.environ.get("postgresql://student_db_2112_user:iOryEEOeOkYb4x5FN3k0qPdYHctyucTE@dpg-d8od27b7uimc739fico0-a/student_db_2112")
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
