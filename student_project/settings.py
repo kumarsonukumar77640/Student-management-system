@@ -26,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-abc123-change-this-key'
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'https://student-management-system-1-0wek.onrender.com',
+    'student-management-system-1-0wek.onrender.com',
     'localhost',
     '127.0.0.1', 
 ]
@@ -97,16 +97,13 @@ WSGI_APPLICATION = 'student_project.wsgi.application'
 
 
 
-DATABASES = {
-        "default":{
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": "studentdb",
-            "USER": "mysqldb",
-            "PASSWORD": "mysqldb",
-            "HOST": "localhost",
-            "PORT" : "3306"
-        }
-    }    
+
+# import dj_database_url 
+# import os
+# DATABASES = {
+#      'default':dj_database_url.config(
+#        default=os.environ.get("postgresql://student_db_2112_user:iOryEEOeOkYb4x5FN3k0qPdYHctyucTE@dpg-d8od27b7uimc739fico0-a/student_db_2112")     )
+#  }       
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
