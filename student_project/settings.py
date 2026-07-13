@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'students'
 ]
 
@@ -98,9 +99,11 @@ WSGI_APPLICATION = 'student_project.wsgi.application'
 
 import os
 import dj_database_url
+
+
 DATABASES = {
     'default':dj_database_url.config(
-        default=os.environ.get("postgresql://student_db_2112_user:iOryEEOeOkYb4x5FN3k0qPdYHctyucTE@dpg-d8od27b7uimc739fico0-a/student_db_2112")
+        default=os.environ.get("DATABASE_URL")
     )
 }
 
@@ -146,3 +149,5 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressdManifestStaticFilesStorage"
