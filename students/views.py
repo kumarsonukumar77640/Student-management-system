@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
+
 # Create your views here.
 
 # Registration
@@ -58,6 +59,7 @@ def update_student(request, id):
         form = StudentForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
+            messages.success(request, "Student Updated Successfully")
             return redirect('student_list')
 
     else:
@@ -74,6 +76,7 @@ def delete_student(request, id):
     if request.method == 'POST':
             
             student.delete()
+            messages.success(request, "Student Deleted Successfully")
             return redirect('student_list')
 
     

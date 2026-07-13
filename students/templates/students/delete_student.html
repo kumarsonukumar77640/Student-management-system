@@ -1,27 +1,22 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delete Student</title>
-    <link rel="stylesheet" href="{% static 'css/delete_student.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/delete_student.css' %}" />
+  </head>
+  <body>
     <div class="container">
-        <div class="card">
-        <h1>
-            Are you sure you want to delete {{ student.name }}
-        </h1>
+      <div class="card">
+        <h1>Are you sure you want to delete {{ student.name }}</h1>
         <form method="POST">
-             {% csrf_token %}
-             <button type="submit">Yes Delete</button>
-             <a href="{% url 'student_list' %}">Back to Student List </a>
+          {% csrf_token %}
+          <button type="submit">Yes Delete</button>
+          <a href="{% url 'student_list' %}">Back to Student List </a>
         </form>
-        
-
+      </div>
     </div>
-    </div>
-    
-</body>
+  </body>
 </html>
