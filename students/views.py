@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 # Create your views here.
@@ -28,14 +29,32 @@ def register(request):
 @login_required
 # Read
 def student_list(request):
+   
+
+    # search Feature
+
+    query = request.GET.get('search', "")
+
     students=Student.objects.all()
+
+    if query:
+        students = students.filter(
+            Q(name__icontains=query) |
+            Q(email__icontains=query) |
+            Q(age__icontains=query)
+        )
 
     paginator = Paginator(students, 5) # 5 students per page
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'students/student_list.html', {'page_obj':page_obj})
+    context = {
+        'page_obj':page_obj,
+        'query':query
+    }
+
+    return render(request, 'students/student_list.html', context)
 
 
 # Create

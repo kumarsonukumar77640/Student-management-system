@@ -20,6 +20,22 @@
         <h1>Student List</h1>
         <a href="/add/" class="add-btn"> +Add Student</a>
       </div>
+
+      <!--Search -->
+      <div class="search-box">
+        <form method="get">
+          <input
+          type="text"
+          name="search"
+          value="{{ query }}"
+          placeholder="Search">
+          <button type="submit">Search</button>
+
+        </form>
+
+      </div>
+
+
       {% if messages %} {% for message in messages %}
       <div class="message">{{ message }}</div>
       {% endfor %} {% endif %}
